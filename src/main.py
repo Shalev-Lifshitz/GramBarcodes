@@ -21,6 +21,8 @@ def main():
         4: 'block4_conv1',
         5: 'block5_conv1'
     }
+
+    # These are the layer combinations we want to test (see paper)
     layer_combinations = [
         [1, 2, 3, 4, 5],
         [1, 2, 3, 5],
@@ -68,7 +70,6 @@ def main():
                              "sensitivity", "specificity", "auc"]
             first_row = ""
             second_row = ""
-            i = 0
             for j in range(len(table_columns)):
                 if j == 0:
                     s = str(layer_combination)
@@ -78,6 +79,8 @@ def main():
                     s = metrics_table_row_colo[j - 4]
                 elif 7 <= j:
                     s = metrics_table_row_endo[j - 7]
+                else:
+                    raise ValueError("Invalid column index")
 
                 width = max(len(table_columns[j]), len(s))
                 first_row += table_columns[j] + (" " * (width - len(table_columns[j]))) + " "

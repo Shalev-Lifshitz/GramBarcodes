@@ -6,10 +6,10 @@ import cv2
 import os
 
 
-class Indexor:
+class Indexer:
     @staticmethod
     def index_images(save_path, data_dir_path, layers_list, barcodes_filename):
-        """Calculating the gram barcode for each image. Method calculates list of barcodes and
+        """Generate the gram barcode for each image. Method calculates list of barcodes and
         then coverts the list to an array."""
         tik_indexing = time.time()
 

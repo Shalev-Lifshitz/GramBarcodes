@@ -2,6 +2,7 @@ import statistics
 
 
 def create_cross_val_info(metrics_all_rounds: list, k: int):
+    """Create a text file containing cross validation results, in latex format."""
     if len(metrics_all_rounds) > 1:
         accuracy_all_rounds = [metrics[0] for metrics in metrics_all_rounds]
         sensitivity_all_rounds = [metrics[1] for metrics in metrics_all_rounds]

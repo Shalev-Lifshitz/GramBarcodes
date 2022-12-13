@@ -68,22 +68,14 @@ class GramBarcodeGenerator:
                 binary_vector[i] = False
         return binary_vector
 
-    # TODO: Better, do I even need to resize the images down to 512?
     @staticmethod
     def prepare_image(image):
-        """Resizes image to VGG19 input dimensions and adds batch dim.
-
-        Args:
-            image:
-
-        Returns:
-
-        """
+        """Resizes image to VGG19 input dimensions and adds batch dim."""
         assert len(image.shape) == 3
 
         # Change the image size to have maximum height or width of 512.
         # VGG can only read maximum 512 in size.
-        # This code keeps the same aspect ration of the image (TODO: BETTER WITHOUT KEEPING ASPECT RATIO?)
+        # This code keeps the same aspect ration of the image
         if image.shape[0] > image.shape[1]:
             height = 512
             width = round(image.shape[1] * (512 / image.shape[0]))

@@ -9,7 +9,7 @@ import tensorflow as tf
 import numpy as np
 import torch
 
-from Indexor import Indexor
+from Indexer import Indexer
 from Retriever import Retriever
 from MetricComputer import MetricComputer
 from helpers import create_cross_val_info
@@ -95,10 +95,10 @@ class CrossValidator:
         test_data_dir_path = os.path.join(data_dir_path, 'Testing')
 
         print("\nINDEXING TRAINING IMAGES...")
-        Indexor.index_images(data_dir_path, train_data_dir_path, self.layers_list,
+        Indexer.index_images(data_dir_path, train_data_dir_path, self.layers_list,
                              f"train_gram_barcodes_layers[{self.layers_list_str}]")
         print("\nINDEXING TESTING IMAGES...")
-        Indexor.index_images(data_dir_path, test_data_dir_path, self.layers_list,
+        Indexer.index_images(data_dir_path, test_data_dir_path, self.layers_list,
                              f"test_gram_barcodes_layers[{self.layers_list_str}]")
 
     def run_cross_val(self, dataset_name: str,
@@ -195,7 +195,7 @@ class CrossValidator:
 
             fold_dir_path = os.path.join(folds_dir_path, fold_dir)
             save_path = os.path.join(fold_dir_path, 'gram_barcodes')
-            Indexor.index_images(save_path, fold_dir_path, self.layers_list,
+            Indexer.index_images(save_path, fold_dir_path, self.layers_list,
                                  f"gram_barcodes_layers[{self.layers_list_str}]")
 
     def create_folds_if_none(self, dataset_name: str, num_folds: int = 5):

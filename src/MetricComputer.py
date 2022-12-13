@@ -8,6 +8,8 @@ from sklearn.metrics import confusion_matrix, roc_curve, accuracy_score, auc
 
 
 class MetricComputer:
+    """Class for computing evaluation metrics used in the paper."""
+
     def __init__(self, dataset_name: str):
         """Initializer for metric computer.
 

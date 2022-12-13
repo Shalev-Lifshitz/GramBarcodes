@@ -28,7 +28,6 @@ class Retriever:
         np.save(os.path.join(run_dir_path, 'query_classes.npy'), query_classes)
         np.save(os.path.join(run_dir_path, 'retrieval_classes.npy'), retrieval_classes)
 
-    # noinspection PyArgumentList
     def compute_distances(self, train_gram_barcodes: np.ndarray,
                           test_gram_barcodes: np.ndarray) -> np.ndarray:
         """Compute and save distance array, but split array to save VRAM."""
